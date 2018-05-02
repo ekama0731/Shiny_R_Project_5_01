@@ -98,12 +98,12 @@ server <- function(input, output) {
       plot_ly(data = percentChange, type = 'scatter', x= ~born, y= ~perChange, color= ~us, hoverinfo = 'text',
               text = ~paste('Percent Change: ', perChange,
                             '<br> Location: ', us )) %>%
-        layout(title = 'Trend Bewtween US vs World NBA PLayers',titlefont = 'mono',xaxis=b, yaxis=c,autosize = F, width = 500, height = 500, margin = m)
+        layout(title = 'Trend Bewtween US vs World NBA PLayers',titlefont = 'mono',xaxis=b, yaxis=c,autosize = F, width = 750, height = 750, margin = m)
       
     )
       
       
-  })#closing renderplot parentheses
+  s})#closing renderplot parentheses
   
   output$genGraph <- renderPlot({
     # generate dataset based on input$generation from ui.R
