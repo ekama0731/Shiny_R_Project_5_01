@@ -120,8 +120,8 @@ percentChange = percentChange %>%
 #Plotly graph ####
 a <- list(title = "Trend Bewtween US vs World NBA PLayers",titlefont = f1,showticklabels = TRUE,tickfont = f2,exponentformat = "E")
 b <- list(title='Year',autotick=TRUE,ticks='inside',ticklen=10,tickwidth=3,zeroline = TRUE,showline = TRUE,showgrid = FALSE)
-c <- list(title = 'Percent Change',autotick = FALSE,ticks = "inside",tick0 = 0,dtick = 12,ticklen = 10,tickwidth = 3,zeroline = TRUE,showline = TRUE,showgrid = FALSE)
-m <- list(l = 75, r = 75, b = 75, t = 50, pad = 1)
+c <- list(title = 'Percent Difference',autotick = FALSE,ticks = "inside",tick0 = 0,dtick = 12,ticklen = 10,tickwidth = 3,zeroline = TRUE,showline = TRUE,showgrid = FALSE)
+m <- list(l = 50, r = 75, b = 75, t = 50, pad = 1)
 
 plot_ly(data = percentChange, type = 'scatter', x= ~born, y= ~perChange, color= ~us, hoverinfo = 'text',
         text = ~paste('Percent Change: ', perChange,

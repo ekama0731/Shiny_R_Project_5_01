@@ -2,6 +2,7 @@ library(shiny)
 library(shinydashboard)
 library(plotly)
 library(DT)
+library(rsconnect)
 
    ui <- dashboardPage(skin = "black",
                       
@@ -82,7 +83,7 @@ server <- function(input, output) {
               panel.grid.minor = element_line(colour = NA), 
               axis.title = element_text(family = "mono", face = "bold"),
               axis.text = element_text(family = "mono", face = "bold", colour = "black"), 
-              axis.text.x = element_text(family = "mono", colour = "black", vjust = 0.5, angle = 90), 
+              axis.text.x = element_text(family = "mono", colour = "black", vjust = 0.5, angle = 45, size = 15), 
               axis.text.y = element_text(colour = "black"), 
               plot.title = element_text(family = "mono", size = 20, face = "bold", hjust = 0.5), 
               panel.background = element_rect(fill = NA)) +
@@ -95,8 +96,8 @@ server <- function(input, output) {
   
   output$trend <- renderPlotly({
     return(
-      plot_ly(data = percentChange, type = 'scatter', x= ~born, y= ~perChange, color= ~us, hoverinfo = 'text',
-              text = ~paste('Percent Change: ', perChange,
+      plot_ly(data = percentChange, type = 'scatter', x= ~born, y= ~perChange, color= ~us, colors = "Set1", hoverinfo = 'text', 
+              text = ~paste('Percent Difference: ', perChange,
                             '<br> Location: ', us )) %>%
         layout(title = 'Trend Bewtween US vs World NBA PLayers',titlefont = 'mono',xaxis=b, yaxis=c,autosize = F, width = 750, height = 750, margin = m)
       
